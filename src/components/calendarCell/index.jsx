@@ -1,8 +1,6 @@
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useMemo } from 'react'
 import styles from './styles.module.css'
-import { checkDate } from '../../utils/checkDate'
-
-const DEFAULT_BACKGROUND_URL = 'https://apod.nasa.gov/apod/calendar/S_190108.jpg'
+import useFetchData from '../../use/useFetchData'
 
 const extractNumber = date => {
   return Number(date.split('-')[2])
@@ -14,33 +12,16 @@ const extractMonth = date => {
 
 export const CalendarCell = props => {
   const { date, month } = props;
-
-  const [thumb, setThumb] = useState(DEFAULT_BACKGROUND_URL);
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    const fetchData = async () => {
-      let resp = await fetch(`https://apodapi.herokuapp.com/api/?date=${date}&image_thumbnail_size=100&absolute_thumbnail_url=true&thumbs=true`, { signal: abortController.signal })
-      resp = await resp.json()
-      setThumb(`https://${resp.image_thumbnail}`)
-    }
-    checkDate(date) ? fetchData() : setThumb(DEFAULT_BACKGROUND_URL)
-    return () => {
-      abortController.abort();
-    };
-  }, [date])
-
+  const { apod } = useFetchData(date)
   const number = useMemo(() => extractNumber(date), [date])
-
   const cellMonth = useMemo(() => extractMonth(date), [date])
-
   const style = useMemo(() => (
     {
-      backgroundImage: `url(${thumb})`,
+      backgroundImage: `url(https://${apod.image_thumbnail})`,
       cursor: "pointer",
       opacity: cellMonth === month ? 1 : 0.33
     }
-  ), [thumb, month, cellMonth])
+  ), [apod, month, cellMonth])
 
   return (
     <div className={styles.cell} style={style}>

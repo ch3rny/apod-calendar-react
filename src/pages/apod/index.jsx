@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styles from './styles.module.css'
 import { ApodNavbar } from '../../components/apodNavbar'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { Loader } from '../../components/loader'
+import useFetchData from '../../use/useFetchData'
 const MediaContent = props => {
   const { apod } = props
   if (apod.media_type === 'image') {
@@ -29,25 +30,9 @@ const MediaContent = props => {
   }
 }
 
-export const Apod = (props) => {
+export const Apod = () => {
   const { date } = useParams();
-  const [isLoaded, setLoading] = useState(false)
-  const [apod, setApod] = useState({})
-
-  useEffect(() => {
-    const abortController = new AbortController();
-    const fetchData = async () => {
-      let resp = await fetch(`https://apodapi.herokuapp.com/api/?date=${date}&image_thumbnail_size=500`, { signal: abortController.signal })
-      resp = await resp.json()
-      setApod(resp)
-      setLoading(true)
-    }
-    fetchData()
-    return () => {
-      abortController.abort();
-      setLoading(false)
-    };
-  }, [date])
+  const { isLoaded, apod } = useFetchData(date)
 
   return (
     <>
