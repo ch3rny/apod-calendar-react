@@ -42,6 +42,7 @@ export const Apod = () => {
           <><MediaContent apod={apod} />
             <div className={styles.info}>
               <div className={styles.title}>{apod.title}</div>
+              <div className={styles.copyright}>&copy; {apod.copyright}</div>
               <div className={styles.description}>{apod.description}</div>
               <Link className={styles.back} to='/'>
                 <span role="img" aria-label="calendar" >📅</span>Back to Calendar
