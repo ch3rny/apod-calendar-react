@@ -1,22 +1,36 @@
-.App {
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic");
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+  background-color: #222;
+}
+
+.page {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  color: #fff;
+  height: 100vh;
   display: flex;
+  flex: 0 100vh;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+nav {
+  height: 64px;
+  line-height: 64px;
+  font-size: 24px;
+}
+
+nav button {
+  display: inline-block;
+  height: 48px;
+  border: none;
+  background-color: transparent;
+  font-size: 32px;
+  color: #fff;
 }

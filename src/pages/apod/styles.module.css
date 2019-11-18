@@ -1,0 +1,51 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  color: #fff;
+}
+.mediaContainer {
+  display: flex;
+  flex: 1 auto;
+}
+.mediaContainer iframe {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  max-height: 480px;
+  margin: auto auto;
+}
+.imageContainer {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageContainer img {
+  width: 50%;
+  height: 50%;
+}
+.info {
+  flex: 0 auto;
+  padding: 20px 40px;
+}
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 20px;
+}
+.description {
+  font-size: 18px;
+  text-align: justify;
+}
+.back {
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+}

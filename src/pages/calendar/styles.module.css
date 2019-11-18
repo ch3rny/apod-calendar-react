@@ -1,0 +1,16 @@
+.calendar {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  grid-template-rows: 30px repeat(6, auto) 1px;
+  grid-column-gap: 4px;
+  grid-row-gap: 6px;
+  max-width: 1140px;
+  height: 100vh;
+  max-height: 800px;
+  margin: auto auto;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
