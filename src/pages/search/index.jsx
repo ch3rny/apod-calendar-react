@@ -1,12 +1,12 @@
 // eslint-disable-next-line
 import React from "react";
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import { useSearchData, usePagination } from '../../hooks'
-import { Loader } from '../../components/loader'
-import { SearchResult } from '../../components/search-result'
-import { Paginator } from '../../components/paginator'
 import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
+import { Loader } from 'components/loader'
+import { Paginator } from 'components/paginator'
+import { SearchResult } from 'components/search-result'
+import { useParams } from 'react-router-dom'
+import { useSearchData, usePagination } from 'hooks'
 
 const Results = ({ result, search }) => {
   return (

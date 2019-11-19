@@ -1,11 +1,11 @@
 // eslint-disable-next-line
 import React, { useMemo } from "react";
 import styles from './styles.module.css'
-import { useCalendarNavigation } from '../../hooks'
-import { CalendarCell } from '../../components/calendar-cell'
-import { CalendarNavbar } from '../../components/calendar-navbar'
+import { CalendarCell } from 'components/calendar-cell'
+import { CalendarNavbar } from 'components/calendar-navbar'
 import { NavLink } from 'react-router-dom'
-import { checkDate, getDates } from '../../utils'
+import { checkDate, getDates } from 'utils'
+import { useCalendarNavigation } from 'hooks'
 
 
 const days = ['Sun', 'Mon', "Tue", "Wed", "Thu", "Fri", "Sat"]

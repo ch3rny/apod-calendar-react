@@ -18,7 +18,15 @@
   },
   "eslintConfig": {
     "extends": "react-app",
-    "autoFix": true
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "src/"
+          ]
+        }
+      }
+    }
   },
   "browserslist": {
     "production": [

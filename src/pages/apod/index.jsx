@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './styles.module.css'
-import { ApodNavbar } from '../../components/apod-navbar'
+import { ApodNavbar } from 'components/apod-navbar'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import { Loader } from '../../components/loader'
-import { useFetchData } from '../../hooks'
+import { Loader } from 'components/loader'
+import { useFetchData } from 'hooks'
 const MediaContent = ({ apod }) => {
 
   return apod.media_type === 'image' ? (
