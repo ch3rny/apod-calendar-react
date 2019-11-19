@@ -1,5 +1,5 @@
 import React from "react";
-import useCalendarNavigation from '../../use/useCalendarNavigation'
+import { useCalendarNavigation } from '../../hooks'
 
 const monthNames = [
   "January",

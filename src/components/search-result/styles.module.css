@@ -1,0 +1,37 @@
+.link {
+  display: inline-block;
+  width: 49%;
+  margin: 10px auto;
+}
+
+.resultContainer {
+  display: flex;
+  padding: 5px;
+  border: 1px solid #ccc;
+  height: 110px;
+  overflow: hidden;
+}
+.resultImage {
+  margin-top: 5px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  flex: 0 0 100px;
+}
+.infoContainer {
+  margin-left: 10px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.title,
+.descrition {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 600px) {
+  .link {
+    width: 90%;
+  }
+}

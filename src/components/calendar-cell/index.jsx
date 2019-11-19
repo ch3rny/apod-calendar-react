@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import styles from './styles.module.css'
-import useFetchData from '../../use/useFetchData'
+import { useFetchData } from '../../hooks'
 
 const extractNumber = date => {
   return Number(date.split('-')[2])
@@ -10,8 +10,7 @@ const extractMonth = date => {
   return Number(date.split('-')[1] - 1)
 }
 
-export const CalendarCell = props => {
-  const { date, month } = props;
+export const CalendarCell = ({ date, month }) => {
   const { apod } = useFetchData(date)
   const number = useMemo(() => extractNumber(date), [date])
   const cellMonth = useMemo(() => extractMonth(date), [date])

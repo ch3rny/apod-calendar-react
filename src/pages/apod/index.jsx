@@ -1,23 +1,21 @@
 import React from 'react'
 import styles from './styles.module.css'
-import { ApodNavbar } from '../../components/apodNavbar'
+import { ApodNavbar } from '../../components/apod-navbar'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { Loader } from '../../components/loader'
-import useFetchData from '../../use/useFetchData'
-const MediaContent = props => {
-  const { apod } = props
-  if (apod.media_type === 'image') {
-    return (
-      <div className={styles.mediaContainer}>
-        <div className={styles.imageContainer}>
-          <a href={apod.hdurl}>
-            <img src={apod.url} alt={apod.title} />
-          </a></div>
-      </div>
-    )
-  } else {
-    return (
+import { useFetchData } from '../../hooks'
+const MediaContent = ({ apod }) => {
+
+  return apod.media_type === 'image' ? (
+    <div className={styles.mediaContainer}>
+      <div className={styles.imageContainer}>
+        <a href={apod.hdurl}>
+          <img src={apod.url} alt={apod.title} />
+        </a></div>
+    </div>
+  )
+    : (
       <div className={styles.mediaContainer}>
         <iframe
           title="Media"
@@ -27,7 +25,7 @@ const MediaContent = props => {
         />
       </div>
     )
-  }
+
 }
 
 export const Apod = () => {

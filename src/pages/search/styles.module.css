@@ -1,0 +1,13 @@
+.resultsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto auto;
+}
+.error {
+  display: flex;
+  flex-direction: column;
+  margin: auto auto;
+}
+p {
+  font-size: 32px;
+}

@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { CalendarContext } from "../components/calendarContext";
+import { CalendarContext } from "../components/calendar-provider";
 
-const useCalendarNavigation = () => {
+export const useCalendarNavigation = () => {
   const [state, setState] = useContext(CalendarContext);
   const setNextMonth = () => {
     state.month < 11
@@ -20,5 +20,3 @@ const useCalendarNavigation = () => {
     month: state.month
   };
 };
-
-export default useCalendarNavigation;

@@ -1,34 +1,28 @@
 import { useState, useEffect } from "react";
-import { checkDate } from "../utils";
-const useFetchData = date => {
+
+export const useSearchData = (search, page = 1, number = 10) => {
   const [isLoaded, setLoading] = useState(false);
-  const [apod, setApod] = useState({});
+  const [result, setResult] = useState({});
 
   useEffect(() => {
     const abortController = new AbortController();
     const fetchData = async () => {
       let resp = await fetch(
-        `https://apodapi.herokuapp.com/api/?date=${date}&image_thumbnail_size=100&absolute_thumbnail_url=true&thumbs=true`,
+        `https://apodapi.herokuapp.com/search/?search_query=${search}&number=${number}&page=${page}`,
         { signal: abortController.signal }
       );
       resp = await resp.json();
-      setApod(resp);
+      resp.error ? setResult("error") : setResult(resp);
       setLoading(true);
     };
-    checkDate(date)
-      ? fetchData()
-      : setApod({
-          image_thumbnail: "apod.nasa.gov/apod/calendar/S_190108.jpg"
-        });
+    fetchData();
     return () => {
       abortController.abort();
       setLoading(false);
     };
-  }, [date]);
+  }, [search, page, number]);
   return {
     isLoaded,
-    apod
+    result
   };
 };
-
-export default useFetchData;

@@ -1,15 +1,11 @@
 import React, { useMemo } from "react";
 import { getPreviousDate, getNextDate, checkDate } from '../../utils'
 import { useHistory } from "react-router-dom";
-export const ApodNavbar = (props) => {
-  const { date } = props
 
+export const ApodNavbar = ({ date }) => {
   const prevDate = useMemo(() => getPreviousDate(date), [date])
-
   const nextDate = useMemo(() => getNextDate(date), [date])
-
-  let history = useHistory();
-
+  const history = useHistory();
   const handleClick = (date) => {
     history.push(`/${date}`);
   }
