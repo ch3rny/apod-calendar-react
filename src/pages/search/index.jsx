@@ -13,9 +13,7 @@ const Results = ({ result, search }) => {
     result === 'error'
       ? <div className={styles.error}>
         <p>Nothing is found for {search}</p>
-        <Link className={styles.back} to='/'>
-          <span role="img" aria-label="calendar" >📅</span>Back to Calendar
-        </Link></div>
+      </div>
       : <>
         <p>Results for {search}</p>
         <div className={styles.resultsWrapper}>
@@ -44,6 +42,9 @@ export const Search = () => {
       {isLoaded ? <>
         <Results result={result} search={search} />
         {result === 'error' ? <></> : <Paginator setPrevPage={setPrevPage} setNextPage={setNextPage} prevDisabled={prevDisabled} nextDisabled={nextDisabled} />}
+        <Link className={styles.back} to='/'>
+          <span role="img" aria-label="calendar" >📅</span>Back to Calendar
+        </Link>
       </>
         : <Loader />}
     </div>
