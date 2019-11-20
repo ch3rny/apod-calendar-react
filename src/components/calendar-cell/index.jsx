@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import styles from './styles.module.css'
-import { useFetchData } from '../../hooks'
+import { useFetchData } from 'hooks'
 
 const extractNumber = date => {
   return Number(date.split('-')[2])
@@ -14,13 +14,14 @@ export const CalendarCell = ({ date, month }) => {
   const { apod } = useFetchData(date)
   const number = useMemo(() => extractNumber(date), [date])
   const cellMonth = useMemo(() => extractMonth(date), [date])
-  const style = useMemo(() => (
-    {
+  const style = useMemo(
+    () => ({
       backgroundImage: `url(https://${apod.image_thumbnail})`,
-      cursor: "pointer",
+      cursor: 'pointer',
       opacity: cellMonth === month ? 1 : 0.33
-    }
-  ), [apod, month, cellMonth])
+    }),
+    [apod, month, cellMonth]
+  )
 
   return (
     <div className={styles.cell} style={style}>

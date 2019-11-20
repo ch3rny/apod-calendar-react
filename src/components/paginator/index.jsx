@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import styles from './styles.module.css'
 export const Paginator = ({
   setNextPage,
@@ -8,8 +8,20 @@ export const Paginator = ({
 }) => {
   return (
     <div className={styles.pagination}>
-      <button disabled={prevDisabled} onClick={setPrevPage} className={styles.paginationButton}>prev</button>
-      <button disabled={nextDisabled} onClick={setNextPage} className={styles.paginationButton}>next</button>
+      <button
+        disabled={prevDisabled}
+        onClick={setPrevPage}
+        className={styles.paginationButton}
+      >
+        prev
+      </button>
+      <button
+        disabled={nextDisabled}
+        onClick={setNextPage}
+        className={styles.paginationButton}
+      >
+        next
+      </button>
     </div>
   )
-};
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 export const Loader = () => {
   return (
     <div className={styles.flex}>
@@ -7,11 +7,11 @@ export const Loader = () => {
         <div className={styles.satellite}>
           <span role="img" aria-label="moon">
             🌑
-            </span>
+          </span>
         </div>
         <div className={styles.earth} />
         <div>loading...</div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import 'App.css';
-import { Calendar } from 'pages/calendar';
-import { CalendarProvider } from 'components/calendar-provider';
-import { SearchBar } from 'components/search-bar';
-import { Search } from 'pages/search';
-import { Apod } from 'pages/apod';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import 'App.css'
+import { Calendar } from 'pages/calendar'
+import { CalendarProvider } from 'components/calendar-provider'
+import { SearchBar } from 'components/search-bar'
+import { Search } from 'pages/search'
+import { Apod } from 'pages/apod'
 function App() {
   return (
     <div className="App">
@@ -20,7 +20,7 @@ function App() {
         </Router>
       </CalendarProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
